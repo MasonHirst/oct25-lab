@@ -1,0 +1,64 @@
+With this recipes app, users should be able to make an account, and have their account login stored in a database. Their info such as gender, email, password, and preferences should also be saved in the DB. The users should then be able to login to their account.
+At this point, the user should be able to view recipes submitted by other people, or make their own recipe. They should be able to save their own recipes to their account, and choose if it’s private or not.
+They should also be able to search for keywords and see recipes that fit those keywords.
+Users should also be able to save their favorite recipes into a list.
+Users should be able to create shopping lists with checkboxes, and be able to add items to that list from recipe pages.
+Users should be able to create events and save recipes to those events (like save good dinner recipes to a family party event type)
+
+
+
+The flow should be -> 
+When user opens the web application, it asks them to sign in. 
+After sign in, the home page shows buttons that lead to: Search/view/sort all recipes, create recipe, favorite recipes, create events.
+Each of those buttons leads to its respective page, and some have buttons that interact with other pages (such as adding a recipe from the search page to your favorites list.
+
+
+
+
+Data
+
+users (containing email and password, etc.)
+user_recipes (containing key numbers to the ingredients table)
+all_recipes (has keys to all user_recipes that are marked public)
+ingredients (all possible)
+user_favorite_recipe lists
+user_events (save recipe keys to the table)
+grocery_list (has keys to the ingredients table)
+
+
+Tables
+
+users
+-id
+-name
+-email
+-password
+
+user_favorite
+-id
+-user_id 
+
+user_events
+-id
+-user_id (key from users)
+-name
+-recipe_id (key from recipes)
+
+
+
+recipes
+-id
+-name
+-user_id (key from users)
+-ingredients
+-instructions
+-public boolean
+
+ingredients
+-id
+-name
+
+grocery_list
+-id
+-user_id (key from users)
+-ingredients (keys from ingredients)
